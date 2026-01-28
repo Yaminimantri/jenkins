@@ -1,8 +1,7 @@
 pipeline {
     agent {
     node {
-        label 'my-defined-label'
-        customWorkspace '/some/other/path'
+        label ' AGENT-1 ' 
         }
     }
     stages {
@@ -20,12 +19,6 @@ pipeline {
             steps {
                 echo "Deploying"
             }
-        }
-    }
-    post { 
-        always { 
-            echo 'I will always say Hello again!'
-            
         }
     }
 }
