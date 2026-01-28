@@ -1,50 +1,52 @@
 pipeline {
     agent {
-    node {
-        label ' AGENT-1 ' 
+        node {
+            label 'AGENT-1'
         }
     }
+
     stages {
         stage('Build') {
             steps {
-                script{
-                    sh """
-                       echo 'Building'
-                    """
+                script {
+                    sh '''
+                        echo "Building"
+                    '''
                 }
             }
         }
+
         stage('Test') {
             steps {
-                script{
-                    sh """
-                       echo 'Testing'
-                    """
+                script {
+                    sh '''
+                        echo "Testing"
+                    '''
                 }
             }
         }
+
         stage('Deploy') {
             steps {
-                script{
-                    sh """
-                       echo 'Deploying'
-                    """
+                script {
+                    sh '''
+                        echo "Deploying"
+                    '''
                 }
             }
         }
-        post{ 
-        always { 
+    }
+
+    post {
+        always {
             echo 'I will always say Hello again!'
             cleanWs()
         }
-        success{
-            echo ' success'
-
+        success {
+            echo 'success'
         }
         failure {
-            echo ' failure'
-
-        }
+            echo 'failure'
         }
     }
 }
